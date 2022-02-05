@@ -1,3 +1,51 @@
+const inquirer = require('inquirer');
+
+const promptUser = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'What is the name of your project?'
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Describe the project',
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Enter installation instructions',
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Enter usage information',
+        },
+        {
+            type: 'input',
+            name: 'contribution',
+            message: 'What are the guidelines for contribution?',
+        },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'How do you test it?',
+        },
+        {
+            type: 'list',
+            name: 'license',
+            message: 'What type of license is it?',
+            choices: ['Public Domain', 'Permissive', 'LGPL', 'Copyleft', 'Proprietary']
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address for contact',
+        },
+    ])
+}
+
 // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
@@ -10,4 +58,6 @@ function writeToFile(fileName, data) {}
 function init() {}
 
 // Function call to initialize app
-init();
+init()
+.then(promptUser)
+return
