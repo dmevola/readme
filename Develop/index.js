@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
+const {writeFile, CopyFile } = require('./utils/generateMarkdown.js');
+const generateRm = require('./src/readme-template.js')
 
-const promptUser = () => {
+const questions = responseData => {
+    responseData = [];
     return inquirer.prompt([
         {
             type: 'input',
@@ -44,20 +47,20 @@ const promptUser = () => {
             message: 'Enter your email address for contact',
         },
     ])
-}
-
-// TODO: Include packages needed for this application
-
-// TODO: Create an array of questions for user input
-const questions = [];
+    .then(answers => {
+        responseData.push(answers)
+        console.log(answers)
+    })
+};
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+// function init() {}
 
 // Function call to initialize app
-init()
-.then(promptUser)
-return
+// init()
+
+questions();
+
